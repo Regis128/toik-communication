@@ -26,11 +26,12 @@ public class TCPCommunicator implements ICommunicator {
 		ID = this.namingService.GetWorker(this.name);
 
 		try {
+			LocateRegistry.createRegistry( Registry.REGISTRY_PORT );
 			localService = new MessagingService();
 			IMessagingService stub = (IMessagingService) UnicastRemoteObject
 					.exportObject(localService, 0);
 			Registry registry = LocateRegistry.getRegistry();
-			registry.rebind(idMatcher.group(5), stub);
+			registry.rebind(ID, stub);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
@@ -38,9 +39,9 @@ public class TCPCommunicator implements ICommunicator {
 
 	public void sendMessage(String worker, String agent, Message message) {
 		try {
-			Registry registry = LocateRegistry.getRegistry(idMatcher.group(2));
+			Registry registry = LocateRegistry.getRegistry(Registry.REGISTRY_PORT);
 			IMessagingService remoteService = (IMessagingService) registry
-					.lookup(idMatcher.group(5));
+					.lookup(ID);
 			remoteService.invokeCommunication(message);
 		} catch (AccessException e) {
 			e.printStackTrace();
