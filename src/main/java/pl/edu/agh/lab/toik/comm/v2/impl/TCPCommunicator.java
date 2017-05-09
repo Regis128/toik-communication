@@ -1,8 +1,8 @@
-package main.java.pl.edu.agh.lab.toik.comm.impl;
+package pl.edu.agh.lab.toik.comm.v2.impl;
 
-import main.java.pl.edu.agh.lab.toik.comm.ICommunicator;
-import main.java.pl.edu.agh.lab.toik.comm.IMessageObserver;
-import main.java.pl.edu.agh.lab.toik.comm.INamingService;
+import pl.edu.agh.lab.toik.comm.v2.ICommunicator;
+import pl.edu.agh.lab.toik.comm.v2.IMessageObserver;
+import pl.edu.agh.lab.toik.comm.v2.INamingService;
 
 import java.rmi.AccessException;
 import java.rmi.NotBoundException;
@@ -10,7 +10,6 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.regex.Matcher;
 
 
 public class TCPCommunicator implements ICommunicator {

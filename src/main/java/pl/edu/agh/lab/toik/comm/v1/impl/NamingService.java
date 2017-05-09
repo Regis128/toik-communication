@@ -1,6 +1,6 @@
-package main.java.pl.edu.agh.lab.toik.comm.impl;
+package pl.edu.agh.lab.toik.comm.v1.impl;
 
-import main.java.pl.edu.agh.lab.toik.comm.INamingService;
+import pl.edu.agh.lab.toik.comm.v1.INamingService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,17 +11,7 @@ import java.util.HashMap;
 public class NamingService implements INamingService {
     private HashMap<String, String> namingService;
     private HashMap<String, ArrayList<String>> agents;
-    private int workers = 0;
-
-    private NamingService(String conf) {
-        namingService = new HashMap<>();
-        agents = new HashMap<>();
-    }
-
-    public NamingService create(String conf) {
-        NamingService ns = new NamingService(conf);
-        return ns;
-    }
+    private int workers = 1;
 
     public String GetWorker(String name) {
         return namingService.get(name);
@@ -32,11 +22,26 @@ public class NamingService implements INamingService {
     }
 
     private void CreateWorker(String address) {
-        namingService.put("w"+workers++, address);
+        String name = "w"+workers;
+        workers++;
+        namingService.put(name, address);
+        agents.put(name, new ArrayList<>());
     }
 
     private void CreateAgent(String worker) {
         ArrayList<String> list = agents.get(worker);
         list.add(worker+"a"+list.size());
+    }
+
+    public NamingService(String conf) {
+        namingService = new HashMap<>();
+        agents = new HashMap<>();
+        this.CreateWorker("host1");
+        this.CreateWorker("host2");
+        this.CreateAgent("w1");
+        this.CreateAgent("w1");
+        this.CreateAgent("w2");
+        this.CreateAgent("w2");
+        this.CreateAgent("w2");
     }
 }

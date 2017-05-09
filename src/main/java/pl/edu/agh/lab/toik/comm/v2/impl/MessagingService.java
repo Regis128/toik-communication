@@ -1,7 +1,7 @@
-package main.java.pl.edu.agh.lab.toik.comm.impl;
+package pl.edu.agh.lab.toik.comm.v2.impl;
 
-import main.java.pl.edu.agh.lab.toik.comm.ICommunicator;
-import main.java.pl.edu.agh.lab.toik.comm.IMessageObserver;
+import pl.edu.agh.lab.toik.comm.v2.ICommunicator;
+import pl.edu.agh.lab.toik.comm.v2.IMessageObserver;
 
 import java.util.ArrayList;
 import java.util.List;

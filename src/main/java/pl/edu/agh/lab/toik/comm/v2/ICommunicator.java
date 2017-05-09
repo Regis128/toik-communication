@@ -1,6 +1,6 @@
-package main.java.pl.edu.agh.lab.toik.comm;
+package pl.edu.agh.lab.toik.comm.v2;
 
-import main.java.pl.edu.agh.lab.toik.comm.impl.Message;
+import pl.edu.agh.lab.toik.comm.v2.impl.Message;
 
 import javax.jws.WebParam;
 import javax.jws.WebService;

@@ -1,8 +1,8 @@
-package main.java.pl.edu.agh.lab.toik.comm.exmpl;
+package pl.edu.agh.lab.toik.comm.v2.exmpl;
 
 
-import main.java.pl.edu.agh.lab.toik.comm.IMessageObserver;
-import main.java.pl.edu.agh.lab.toik.comm.impl.Message;
+import pl.edu.agh.lab.toik.comm.v2.IMessageObserver;
+import pl.edu.agh.lab.toik.comm.v2.impl.Message;
 
 public class TestMessageHandler implements IMessageObserver {
 

@@ -1,4 +1,4 @@
-package main.java.pl.edu.agh.lab.toik.comm;
+package pl.edu.agh.lab.toik.comm.v2;
 
 public enum MessageType {
 	
